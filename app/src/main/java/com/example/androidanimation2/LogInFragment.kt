@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 
 class LogInFragment : Fragment() {
@@ -22,5 +23,11 @@ class LogInFragment : Fragment() {
         textView = view.findViewById(R.id.textView)
         val login = arguments?.getString("login")
         textView.text = "Приветствуем $login"
+        textView.startAnimation(
+            AnimationUtils.loadAnimation(
+                activity?.applicationContext,
+                R.anim.occurence
+            )
+        )
     }
 }
